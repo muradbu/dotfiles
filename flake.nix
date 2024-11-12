@@ -16,7 +16,7 @@
     darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [ 
-        ./host/darwin/configuration.nix
+        ./hosts/darwin/configuration.nix
         home-manager.darwinModules.home-manager
         nixvim.nixDarwinModules.nixvim
         {
