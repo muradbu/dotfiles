@@ -1,4 +1,4 @@
-{ pkgs, self, ... }:
+{ pkgs, nixpkgs-unstable, self, ... }:
 
 {
   imports = [
@@ -52,6 +52,9 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
+  
+  nix.nixPath = [ "nixpkgs=${nixpkgs-unstable}" ];
+ 
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina

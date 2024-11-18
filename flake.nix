@@ -13,13 +13,11 @@
   };
 
   outputs = inputs@{ self, darwin, home-manager, nixpkgs-unstable, nixvim, ... }: {
-    inherit self;
-    inherit nixpkgs-unstable;
+    inherit self nixpkgs-unstable;
 
     darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = { inherit self; };
-      nix.nixPath = [ "nixpkgs=${inputs.nixpkgs-unstable}" ];
+      specialArgs = { inherit self nixpkgs-unstable; };
       modules = [ 
         ./hosts/darwin/configuration.nix
         home-manager.darwinModules.home-manager
