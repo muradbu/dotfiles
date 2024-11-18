@@ -27,13 +27,13 @@
       fzf
       #git
       zulu
-      nerdfonts
+      #nerdfonts
       #iina
       #iterm2
       #lmstudio
-      #neovim
-      #nixd
-      #nixpkgs-fmt
+      nil
+      nixd
+      nixpkgs-fmt
       #raycast
       #rsync
       #spotify
