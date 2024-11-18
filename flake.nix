@@ -12,12 +12,13 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = inputs@{ self, darwin, home-manager, nixpkgs, nixvim, ... }: {
-    inherit self;
+  outputs = inputs@{ self, darwin, home-manager, nixpkgs-unstable, nixvim, ... }: {
+    inherit self nixpkgs-unstable;
 
     darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       specialArgs = { inherit self; };
+      nix.nixPath = [ "nixpkgs=${inputs.nixpkgs-unstable}" ];
       modules = [ 
         ./hosts/darwin/configuration.nix
         home-manager.darwinModules.home-manager
