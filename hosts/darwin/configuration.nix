@@ -23,7 +23,7 @@
       #btop
       #tor
       #discord
-      #dua
+      dua
       fzf
       #git
       zulu
