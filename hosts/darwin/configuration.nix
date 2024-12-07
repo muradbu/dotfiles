@@ -20,6 +20,7 @@
       #prismlauncher
       #steam
       #ums
+      yt-dlp
       #btop
       #tor
       #discord
