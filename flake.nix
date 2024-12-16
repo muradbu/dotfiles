@@ -18,10 +18,27 @@
     darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       specialArgs = { inherit self nixpkgs-unstable; };
-      modules = [ 
+      modules = [
         ./hosts/darwin/configuration.nix
         home-manager.darwinModules.home-manager
         nixvim.nixDarwinModules.nixvim
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+        }
+      ];
+    };
+
+    darwinConfigurations."andromeda" = darwin.lib.darwinSystem {
+      system = "aarch64-linux";
+      specialArgs = { inherit self nixpkgs-unstable; };
+      modules = [
+        ./hosts/vps/configuration.nix
+        home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
