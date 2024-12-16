@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     "${self}/packages/neovim"
+    "${self}/users/murad.nix"
   ];
 
   home-manager.users.murad = { pkgs, ... }: {
