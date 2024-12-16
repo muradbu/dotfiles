@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "commit", // Changed from "Git: Stage, Commit, and Push" to "commit"
+            "type": "shell",
+            "command": "git add . && git commit -m 'x' && git push",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent", // Changed from "always" to "silent"
+                "panel": "new",
+                "close": true // Added to close the terminal after execution
+            },
+            "group": "none"
+        }
+    ]
+}
