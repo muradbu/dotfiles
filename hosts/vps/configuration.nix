@@ -15,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     yt-dlp
+    cifs-utils
     dua
     fzf
   ];
@@ -32,7 +33,22 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.openssh.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  services.openssh = {
+    enable = true;
+    authorizedKeysCommandUser = "nobody";
+    settings = {
+      GSSAPIAuthentication = false;
+      KerberosAuthentication = false;
+      PasswordAuthentication = false;
+      PermitEmptyPasswords = false;
+      PermitRootLogin = "no";
+      PubkeyAuthentication = true;
+      UsePAM = true;
+      X11Forwarding = false;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
