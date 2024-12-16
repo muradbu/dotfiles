@@ -14,11 +14,20 @@
   };
 
   environment.systemPackages = with pkgs; [
-    yt-dlp
-    cifs-utils
-    dua
+    btop
     cheat
+    cifs-utils
+    curl
+    dua
     fzf
+    git
+    miniserve
+    p7zip
+    qbittorrent-nox
+    silver-searcher
+    sqlite
+    tmux
+    yt-dlp
   ];
 
   security.sudo.extraConfig = ''
