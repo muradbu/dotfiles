@@ -45,7 +45,6 @@
   boot.initrd.kernelModules = [ "virtio_gpu" ];
   boot.kernelParams = [ "console=tty" ];
 
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.openssh = {
