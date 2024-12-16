@@ -17,6 +17,7 @@
     yt-dlp
     cifs-utils
     dua
+    cheat
     fzf
   ];
 
