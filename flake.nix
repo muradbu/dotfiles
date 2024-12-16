@@ -32,7 +32,7 @@
       ];
     };
 
-    darwinConfigurations."andromeda" = darwin.lib.darwinSystem {
+    nixosConfigurations."andromeda" = darwin.lib.darwinSystem {
       system = "aarch64-linux";
       specialArgs = { inherit self nixpkgs-unstable; };
       modules = [
