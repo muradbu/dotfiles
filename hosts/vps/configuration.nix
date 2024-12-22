@@ -49,20 +49,20 @@
 
   services.tailscale.enable = true;
 
-  #services.openssh = {
-  #  enable = true;
-  #  authorizedKeysCommandUser = "nobody";
-  #  settings = {
-  #    GSSAPIAuthentication = false;
-  #    KerberosAuthentication = false;
-  #    PasswordAuthentication = false;
-  #    PermitEmptyPasswords = false;
-  #    PermitRootLogin = "no";
-  #    PubkeyAuthentication = true;
-  #    UsePAM = true;
-  #    X11Forwarding = false;
-  #  };
-  #};
+  services.openssh = {
+    enable = true;
+    authorizedKeysCommandUser = "nobody";
+    settings = {
+      GSSAPIAuthentication = false;
+      KerberosAuthentication = false;
+      PasswordAuthentication = false;
+      PermitEmptyPasswords = false;
+      PermitRootLogin = "no";
+      PubkeyAuthentication = true;
+      UsePAM = true;
+      X11Forwarding = false;
+    };
+  };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 6881 ];
