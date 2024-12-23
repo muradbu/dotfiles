@@ -64,6 +64,8 @@
     };
   };
 
+  services.docker.enable = true;
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 6881 ];
   networking.firewall.allowedUDPPorts = [ 6881 ];
