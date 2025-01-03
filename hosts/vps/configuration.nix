@@ -93,8 +93,8 @@
   virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 6881 ];
-  networking.firewall.allowedUDPPorts = [ 6881 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 6881 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 6881 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
