@@ -35,6 +35,7 @@
     openFirewall = true;
     configDir = "/home/murad/.config/jellyfin";
     group = "murad";
+    user = "murad";
   };
 
   security.sudo.extraConfig = ''
