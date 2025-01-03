@@ -30,6 +30,14 @@
     yt-dlp
   ];
 
+  services.caddy = {
+    enable = true;
+
+    virtualHosts."jellyfin.muradb.com".extraConfig = ''
+      reverse_proxy :8096
+    '';
+  };
+
   services.jellyfin = {
     enable = true;
     openFirewall = true;
