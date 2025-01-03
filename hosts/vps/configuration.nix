@@ -38,6 +38,11 @@
     user = "murad";
   };
 
+  services.flaresolverr = {
+    enable = true;
+    openFirewall = true;
+  };
+
   services.prowlarr = {
     enable = true;
     openFirewall = true;
