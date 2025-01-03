@@ -30,6 +30,12 @@
     yt-dlp
   ];
 
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    configDir = "/home/murad/.config/jellyfin";
+  };
+
   security.sudo.extraConfig = ''
     Defaults         timestamp_timeout=30
   '';
