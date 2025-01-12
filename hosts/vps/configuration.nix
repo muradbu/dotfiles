@@ -47,7 +47,7 @@
   };
 
   services.flaresolverr = {
-    enable = true;
+    enable = false;
     openFirewall = true;
   };
 
