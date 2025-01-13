@@ -33,7 +33,7 @@
   services.rtorrent = {
     enable = true;
     port = 50000;
-    group = "murad";
+    #group = "murad";
     user = "murad";
     dataDir = "/home/murad/.config/rtorrent";
     openFirewall = true;
