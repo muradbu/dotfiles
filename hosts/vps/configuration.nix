@@ -33,19 +33,19 @@
   services.rtorrent = {
     enable = true;
     port = 50000;
-    #user = "murad";
+    user = "murad";
     #group = "murad";
     dataDir = "/home/murad/.config/rtorrent";
     openFirewall = true;
     downloadDir = "/home/murad/mnt/downloads";
   };
 
-  services.rutorrent = {
-    enable = true;
-    dataDir = "/home/murad/.config/rutorrent";
-    #user = "murad";
-    #group = "murad";
-  };
+  #services.rutorrent = {
+  #  enable = true;
+  #  dataDir = "/home/murad/.config/rutorrent";
+  #  #user = "murad";
+  #  #group = "murad";
+  #};
 
   services.caddy = {
     enable = true;
