@@ -43,6 +43,7 @@
   services.rutorrent = {
     enable = true;
     dataDir = "/home/murad/.config/rutorrent";
+    hostName = "rutorrent.muradb.com";
     #user = "murad";
     #group = "murad";
   };
