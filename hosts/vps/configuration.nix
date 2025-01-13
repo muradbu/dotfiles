@@ -40,12 +40,12 @@
     downloadDir = "/home/murad/mnt/downloads";
   };
 
-  #services.rutorrent = {
-  #  enable = true;
-  #  dataDir = "/home/murad/.config/rutorrent";
-  #  #user = "murad";
-  #  #group = "murad";
-  #};
+  services.rutorrent = {
+    enable = true;
+    dataDir = "/home/murad/.config/rutorrent";
+    user = "murad";
+    #group = "murad";
+  };
 
   services.caddy = {
     enable = true;
