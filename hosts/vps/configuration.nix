@@ -43,7 +43,7 @@
   services.rutorrent = {
     enable = true;
     dataDir = "/home/murad/.config/rutorrent";
-    user = "murad";
+    #user = "murad";
     #group = "murad";
   };
 
