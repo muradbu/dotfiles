@@ -21,6 +21,7 @@
     #steam
     #ums
     yt-dlp
+    z-lua
     #btop
     #tor
     #discord
