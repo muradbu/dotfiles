@@ -30,23 +30,23 @@
     yt-dlp
   ];
 
-  services.rtorrent = {
-    enable = true;
-    port = 50000;
-    user = "murad";
-    #group = "murad";
-    dataDir = "/home/murad/.config/rtorrent";
-    openFirewall = true;
-    downloadDir = "/home/murad/mnt/downloads";
-  };
+  #services.rtorrent = {
+  #  enable = true;
+  #  port = 50000;
+  #  user = "murad";
+  #  #group = "murad";
+  #  dataDir = "/home/murad/.config/rtorrent";
+  #  openFirewall = true;
+  #  downloadDir = "/home/murad/mnt/downloads";
+  #};
 
-  services.rutorrent = {
-    enable = true;
-    dataDir = "/home/murad/.config/rutorrent";
-    hostName = "rutorrent.muradb.com";
-    #user = "murad";
-    #group = "murad";
-  };
+  #services.rutorrent = {
+  #  enable = true;
+  #  dataDir = "/home/murad/.config/rutorrent";
+  #  hostName = "rutorrent.muradb.com";
+  #  #user = "murad";
+  #  #group = "murad";
+  #};
 
   services.caddy = {
     enable = true;
@@ -114,7 +114,7 @@
   networking.firewall.allowedTCPPorts = [ 80 443 6881 ];
   networking.firewall.allowedUDPPorts = [ 80 443 6881 ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  #networking.firewall.enable = false;
 
   system.stateVersion = "24.05";
 }
