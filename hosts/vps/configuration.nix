@@ -60,6 +60,7 @@
     enable = true;
     openFirewall = true;
     configDir = "/home/murad/.config/jellyfin";
+    cacheDir = "/home/murad/mnt/cache/jellyfin";
     group = "murad";
     user = "murad";
   };
