@@ -22,7 +22,7 @@
     #ums
     yt-dlp
     z-lua
-    exa
+    eza
     #btop
     #tor
     #discord
@@ -48,7 +48,7 @@
   ];
 
   environment.shellAliases = {
-    ls = "exa";
+    ls = "eza";
   };
 
   programs.direnv = {
