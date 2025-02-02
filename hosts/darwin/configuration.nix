@@ -47,6 +47,10 @@
     #utm
   ];
 
+  environment.shellAliases = {
+    ls = "exa";
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
