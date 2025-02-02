@@ -48,7 +48,7 @@
   ];
 
   environment.shellAliases = {
-    ls = "eza";
+    ls = "eza -lghHBmS --git --icons --time-style=long-iso --group-directories-first";
   };
 
   programs.direnv = {
