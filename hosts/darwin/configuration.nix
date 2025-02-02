@@ -22,6 +22,7 @@
     #ums
     yt-dlp
     z-lua
+    exa
     #btop
     #tor
     #discord
