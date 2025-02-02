@@ -72,6 +72,8 @@
     Defaults         timestamp_timeout=30
   '';
 
+  security.pam.enableSudoTouchIdAuth = true;
+
   environment.shellAliases = {
     dps = "docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'";
   };
