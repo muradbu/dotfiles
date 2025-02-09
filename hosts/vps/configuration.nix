@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     "${self}/packages/neovim"
     "${self}/users/murad.nix"
+    "${self}/hosts/common"
   ];
 
   home-manager.users.murad = { pkgs, ... }: {
@@ -20,6 +21,7 @@
     curl
     dua
     fzf
+    eza
     git
     miniserve
     p7zip

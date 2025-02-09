@@ -3,6 +3,7 @@
 {
   imports = [
     "${self}/packages/neovim"
+    "${self}/hosts/common"
   ];
 
   users.users.murad = {
@@ -46,11 +47,6 @@
     #unar # The Unarchiver
     #utm
   ];
-
-  environment.shellAliases = {
-    ls = "eza -lghHbm --git --icons --time-style=long-iso --group-directories-first";
-    dps = "docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'";
-  };
 
   programs.direnv = {
     enable = true;
