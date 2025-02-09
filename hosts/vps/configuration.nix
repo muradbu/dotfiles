@@ -71,10 +71,10 @@
   #  openFirewall = true;
   #};
 
-  services.prowlarr = {
-    enable = true;
-    openFirewall = true;
-  };
+  #services.prowlarr = {
+  #  enable = true;
+  #  openFirewall = true;
+  #};
 
   security.sudo.extraConfig = ''
     Defaults         timestamp_timeout=30
