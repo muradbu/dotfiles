@@ -20,8 +20,8 @@
     cifs-utils
     curl
     dua
-    fzf
     eza
+    fzf
     git
     miniserve
     p7zip
