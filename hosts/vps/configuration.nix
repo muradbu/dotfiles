@@ -66,10 +66,10 @@
     user = "murad";
   };
 
-  services.flaresolverr = {
-    enable = false;
-    openFirewall = true;
-  };
+  #services.flaresolverr = {
+  #  enable = false;
+  #  openFirewall = true;
+  #};
 
   services.prowlarr = {
     enable = true;
