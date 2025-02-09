@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-unstable, self, ... }:
+{ pkgs, self, ... }:
 
 {
   imports = [
