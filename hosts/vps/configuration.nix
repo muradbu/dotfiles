@@ -30,15 +30,16 @@
     yt-dlp
   ];
 
-  #services.rtorrent = {
-  #  enable = true;
-  #  port = 50000;
-  #  user = "murad";
-  #  #group = "murad";
-  #  dataDir = "/home/murad/.config/rtorrent";
-  #  openFirewall = true;
-  #  downloadDir = "/home/murad/mnt/downloads";
-  #};
+  services.rtorrent = {
+    enable = true;
+    port = 60000;
+    user = "murad";
+    group = "murad";
+    dataDir = "/home/murad/.config/rtorrent";
+    openFirewall = true;
+    downloadDir = "/home/murad/mnt/downloads";
+    configText = "";
+  };
 
   #services.rutorrent = {
   #  enable = true;
