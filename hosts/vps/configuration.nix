@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     "${self}/packages/neovim"
     "${self}/users/murad.nix"
-    "${self}/hosts/common"
+    "${self}/hosts/shared"
   ];
 
   home-manager.users.murad = { pkgs, ... }: {

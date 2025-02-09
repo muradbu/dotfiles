@@ -3,7 +3,7 @@
 {
   imports = [
     "${self}/packages/neovim"
-    "${self}/hosts/common"
+    "${self}/hosts/shared"
   ];
 
   users.users.murad = {
