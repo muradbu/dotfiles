@@ -8,7 +8,7 @@
   ];
 
   home-manager.users.murad = { pkgs, ... }: {
-    home.packages = with pkgs; [ ];
+    #home.packages = with pkgs; [ ];
 
     home.stateVersion = "24.05";
   };
