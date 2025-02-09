@@ -30,6 +30,7 @@
     sqlite
     tmux
     yt-dlp
+    z-lua
   ];
 
   services.rtorrent = {
