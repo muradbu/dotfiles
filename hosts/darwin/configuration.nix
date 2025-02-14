@@ -21,6 +21,7 @@
 
   environment.systemPackages = with pkgs; [
     age
+    bat
     sops
     #prismlauncher
     #steam

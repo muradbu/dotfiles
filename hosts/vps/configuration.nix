@@ -1,4 +1,4 @@
-{ pkgs, self, ... }:
+{ pkgs, self, config, ... }:
 
 {
   imports = [
@@ -6,7 +6,11 @@
     "${self}/packages/neovim"
     "${self}/users/murad.nix"
     "${self}/hosts/shared"
+    <sops-nix/modules/sops>
   ];
+
+  sops.defaultSopsFile = "${self}/secrets/example.yaml";
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   home-manager.users.murad = { pkgs, ... }: {
     #home.packages = with pkgs; [ ];
@@ -36,6 +40,7 @@
 
   services.autobrr = {
     enable = true;
+    secretFile = config.sops.secrets.autobrrSessionSecret;
     settings = {
       host = "100.108.106.31";
       port = "7474";
