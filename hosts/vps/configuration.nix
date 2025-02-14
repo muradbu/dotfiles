@@ -6,7 +6,6 @@
     "${self}/packages/neovim"
     "${self}/users/murad.nix"
     "${self}/hosts/shared"
-    #<sops-nix/modules/sops>
   ];
 
   sops.defaultSopsFile = "${self}/secrets/example.yaml";
