@@ -12,7 +12,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ self, darwin, home-manager, nixpkgs-unstable, nixvim, ... }: {
+  outputs = inputs@{ self, darwin, home-manager, nixpkgs-unstable, nixvim, sops-nix, ... }: {
     inherit self nixpkgs-unstable;
 
     darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
@@ -39,6 +39,7 @@
         ./hosts/vps/configuration.nix
         home-manager.nixosModules.home-manager
         nixvim.nixosModules.nixvim
+        sops-nix.nixosModules.sops
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
