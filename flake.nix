@@ -10,7 +10,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.follows = "nixpkgs-unstable";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs = inputs@{ self, darwin, home-manager, nixpkgs-unstable, nixvim, sops-nix, ... }: {
