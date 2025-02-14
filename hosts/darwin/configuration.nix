@@ -6,6 +6,8 @@
     "${self}/hosts/shared"
   ];
 
+  ids.gids.nixbld = 350;
+
   users.users.murad = {
     name = "murad";
     home = "/Users/murad";
