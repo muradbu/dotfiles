@@ -61,6 +61,10 @@
   #  #group = "murad";
   #};
 
+  programs.bat = {
+    enable = true;
+  };
+
   services.caddy = {
     enable = true;
 
