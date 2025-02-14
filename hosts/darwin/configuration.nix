@@ -52,6 +52,10 @@
     #utm
   ];
 
+  environment.variables = {
+    EDITOR = "nvim";
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
