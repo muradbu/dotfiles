@@ -21,6 +21,7 @@
     curl
     dua
     eza
+    fd
     fzf
     git
     miniserve
