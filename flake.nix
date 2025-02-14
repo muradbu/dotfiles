@@ -13,7 +13,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
-  outputs = inputs@{ self, darwin, home-manager, nixpkgs-unstable, nixvim, sops-nix, ... }: {
+  outputs = { self, darwin, home-manager, nixpkgs-unstable, nixvim, sops-nix, ... }: {
     inherit self nixpkgs-unstable;
 
     darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
@@ -44,9 +44,6 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
         }
       ];
     };
