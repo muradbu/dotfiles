@@ -18,6 +18,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    age
     #prismlauncher
     #steam
     #ums
