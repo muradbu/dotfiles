@@ -41,7 +41,7 @@
 
   services.autobrr = {
     enable = true;
-    secretFile = config.sops.secrets.autobrrSessionSecret;
+    secretFile = config.sops.secrets.autobrrSessionSecret.path;
     settings = {
       host = "100.108.106.31";
       port = "7474";
