@@ -33,6 +33,14 @@
     z-lua
   ];
 
+  services.autobrr = {
+    enable = true;
+    settings = {
+      host = "100.108.106.31";
+      port = "7474";
+    };
+  };
+
   services.rtorrent = {
     enable = true;
     port = 60000;
