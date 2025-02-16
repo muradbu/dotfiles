@@ -11,8 +11,6 @@
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
-  sops.secrets.autobrrSessionSecret = {};
-
   home-manager.users.murad = { pkgs, ... }: {
     #home.packages = with pkgs; [ ];
 
@@ -39,9 +37,11 @@
     z-lua
   ];
 
+  sops.secrets.autobrrSessionSecret = {};
+  systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
   services.autobrr = {
     enable = true;
-    secretFile = config.sops.secrets.autobrrSessionSecret.path;
+    secretFile = "/run/credentials/autobrr.service/autobrrSessionSecret";
     settings = {
       host = "100.108.106.31";
       port = "7474";
