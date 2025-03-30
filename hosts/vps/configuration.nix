@@ -38,10 +38,10 @@
   ];
 
   sops.secrets.autobrrSessionSecret = { };
-  systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
+  #systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
   services.autobrr = {
     enable = true;
-    secretFile = "/run/credentials/autobrr.service/autobrrSessionSecret";
+    secretFile = config.sops.secrets.autobrrSessionSecret.path;
     settings = {
       host = "100.108.106.31";
       port = "7474";
