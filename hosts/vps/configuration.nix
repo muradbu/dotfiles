@@ -37,7 +37,7 @@
     z-lua
   ];
 
-  sops.secrets.autobrrSessionSecret = {};
+  sops.secrets.autobrrSessionSecret = { };
   systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
   services.autobrr = {
     enable = true;
@@ -116,6 +116,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.tailscale.enable = true;
+
+  services.changedetection-io = {
+    enable = true;
+    user = "murad";
+    group = "murad";
+    datastorePath = "/home/murad/.config/changedetection-io";
+  };
 
   services.openssh = {
     enable = true;
