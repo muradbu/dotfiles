@@ -77,8 +77,6 @@
     Defaults         timestamp_timeout=30
   '';
 
-  security.pam.enableSudoTouchIdAuth = true;
-
   #nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
 
