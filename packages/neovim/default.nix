@@ -3,7 +3,7 @@
 {
   programs.nixvim = {
     enable = true;
-    globalOpts = {
+    opts = {
       number = true;
       relativenumber = true;
       termguicolors = true;
