@@ -3,6 +3,14 @@
 {
   programs.nixvim = {
     enable = true;
+    globalOpts = {
+      number = true;
+      relativenumber = true;
+      termguicolors = true;
+      completeopt = [ "menuone" "noselect" "noinsert" ];
+      ignorecase = true;
+      smartcase = true;
+    };
     colorschemes.ayu.enable = true;
     plugins = {
       nix.enable = true;
