@@ -27,6 +27,7 @@
     lm_sensors
     fd
     fzf
+    smartmontools
     git
     miniserve
     p7zip
@@ -137,6 +138,16 @@
       UsePAM = true;
       X11Forwarding = false;
     };
+  };
+
+  fileSystems = {
+    "/".device = "/dev/";
+    "/data" = {
+      device = "/dev/hda2";
+      fsType = "ext3";
+      options = [ "data=journal" ];
+    };
+    "/bigdisk".label = "bigdisk";
   };
 
   virtualisation.docker.enable = true;
