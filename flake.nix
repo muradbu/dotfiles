@@ -33,6 +33,21 @@
       ];
     };
 
+    nixosConfigurations."bliksem" = nixpkgs-unstable.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit self nixpkgs-unstable; };
+      modules = [
+        ./hosts/home/configuration.nix
+        home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
+        sops-nix.nixosModules.sops
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
+      ];
+    };
+
     nixosConfigurations."andromeda" = nixpkgs-unstable.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { inherit self nixpkgs-unstable; };
