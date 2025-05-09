@@ -140,16 +140,6 @@
     };
   };
 
-  fileSystems = {
-    "/".device = "/dev/";
-    "/data" = {
-      device = "/dev/hda2";
-      fsType = "ext3";
-      options = [ "data=journal" ];
-    };
-    "/bigdisk".label = "bigdisk";
-  };
-
   virtualisation.docker.enable = true;
 
   boot.swraid.mdadmConf = ''
