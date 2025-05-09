@@ -8,8 +8,8 @@
     "${self}/hosts/shared"
   ];
 
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  #sops.defaultSopsFile = ../../secrets/secrets.yaml;
+  #sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   home-manager.users.murad = { pkgs, ... }: {
     #home.packages = with pkgs; [ ];
@@ -37,27 +37,27 @@
     z-lua
   ];
 
-  sops.secrets.autobrrSessionSecret = { };
-  #systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
-  services.autobrr = {
-    enable = true;
-    secretFile = config.sops.secrets.autobrrSessionSecret.path;
-    settings = {
-      host = "100.108.106.31";
-      port = "7474";
-    };
-  };
+  #sops.secrets.autobrrSessionSecret = { };
+  ##systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
+  #services.autobrr = {
+  #  enable = true;
+  #  secretFile = config.sops.secrets.autobrrSessionSecret.path;
+  #  settings = {
+  #    host = "100.108.106.31";
+  #    port = "7474";
+  #  };
+  #};
 
-  services.rtorrent = {
-    enable = true;
-    port = 60000;
-    user = "murad";
-    group = "murad";
-    dataDir = "/home/murad/.config/rtorrent";
-    openFirewall = true;
-    downloadDir = "/home/murad/mnt/downloads";
-    configText = "";
-  };
+  #services.rtorrent = {
+  #  enable = true;
+  #  port = 60000;
+  #  user = "murad";
+  #  group = "murad";
+  #  dataDir = "/home/murad/.config/rtorrent";
+  #  openFirewall = true;
+  #  downloadDir = "/home/murad/mnt/downloads";
+  #  configText = "";
+  #};
 
   #services.rutorrent = {
   #  enable = true;
@@ -71,19 +71,19 @@
     enable = true;
   };
 
-  services.caddy = {
-    enable = true;
+  #services.caddy = {
+  #  enable = true;
 
-    virtualHosts."jellyfin.muradb.com".extraConfig = ''
-      reverse_proxy :8096
-    '';
-  };
+  #  virtualHosts."jellyfin.muradb.com".extraConfig = ''
+  #    reverse_proxy :8096
+  #  '';
+  #};
 
   services.jellyfin = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     configDir = "/home/murad/.config/jellyfin";
-    cacheDir = "/home/murad/mnt/cache/jellyfin";
+    cacheDir = "/home/murad/.config/jellyfin";
     group = "murad";
     user = "murad";
   };
@@ -106,23 +106,23 @@
 
   time.timeZone = "Europe/Amsterdam";
 
-  networking.hostName = "andromeda";
+  networking.hostName = "bliksem";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.kernelModules = [ "virtio_gpu" ];
-  boot.kernelParams = [ "console=tty" ];
+  #boot.initrd.kernelModules = [ "virtio_gpu" ];
+  #boot.kernelParams = [ "console=tty" ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.tailscale.enable = true;
 
-  services.changedetection-io = {
-    enable = true;
-    user = "murad";
-    group = "murad";
-    datastorePath = "/home/murad/.config/changedetection-io";
-  };
+  #services.changedetection-io = {
+  #  enable = true;
+  #  user = "murad";
+  #  group = "murad";
+  #  datastorePath = "/home/murad/.config/changedetection-io";
+  #};
 
   services.openssh = {
     enable = true;
@@ -141,11 +141,16 @@
 
   virtualisation.docker.enable = true;
 
+  boot.swraid.mdadmConf = ''
+    MAILADDR=supermicro@muradbuyukasik.com
+    ARRAY /dev/md/rootfs level=raid1 num-devices=2 metadata=1.2 UUID=c78df6f5:29201fff:1c178212:403cf871 devices=/dev/sdb2,/dev/sdc2
+  '';
+
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 6881 ];
-  networking.firewall.allowedUDPPorts = [ 80 443 6881 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 ];
   # Or disable the firewall altogether.
   #networking.firewall.enable = false;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
