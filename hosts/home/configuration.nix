@@ -24,6 +24,7 @@
     curl
     dua
     eza
+    lm_sensors
     fd
     fzf
     git
@@ -82,8 +83,7 @@
   services.jellyfin = {
     enable = true;
     openFirewall = false;
-    configDir = "/home/murad/.config/jellyfin";
-    cacheDir = "/home/murad/.config/jellyfin";
+    dataDir = "/home/murad/.config";
     group = "murad";
     user = "murad";
   };
