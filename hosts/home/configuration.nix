@@ -154,7 +154,7 @@
   networking.firewall.allowedTCPPorts = [ 80 443 8096 ];
   networking.firewall.allowedUDPPorts = [ 80 443 8096 ];
   # Or disable the firewall altogether.
-  #networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   system.stateVersion = "24.11";
 }
