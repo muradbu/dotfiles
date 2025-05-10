@@ -143,6 +143,20 @@
     };
   };
 
+  services.rtorrent = {
+    enable = true;
+    user = "murad";
+    group = "murad";
+    downloadDir = "/mnt/data/downloads";
+  };
+
+  services.rutorrent = {
+    enable = true;
+    user = "murad";
+    group = "murad";
+    hostName = "bliksem.io";
+  };
+
   virtualisation.docker.enable = true;
 
   boot.swraid.mdadmConf = ''
