@@ -154,7 +154,7 @@
     enable = true;
     # user = "murad";
     # group = "murad";
-    hostName = "bliksem.io";
+    hostName = "127.0.0.1";
   };
 
   virtualisation.docker.enable = true;
