@@ -1,12 +1,7 @@
 { ... }:
 {
-  fileSystems."/mnt/data01" = {
-    device = "/dev/disk/by-label/data01";
-    fsType = "xfs";
-  };
-
-  fileSystems."/mnt/data02" = {
-    device = "/dev/disk/by-label/data02";
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-label/data";
     fsType = "xfs";
   };
 }
