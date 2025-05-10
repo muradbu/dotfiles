@@ -23,6 +23,7 @@
     cifs-utils
     curl
     dua
+    cryptsetup
     eza
     lm_sensors
     fd
