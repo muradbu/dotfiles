@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     btop
     cheat
+    pciutils
     cifs-utils
     curl
     dua
