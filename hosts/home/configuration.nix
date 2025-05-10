@@ -152,8 +152,8 @@
 
   services.rutorrent = {
     enable = true;
-    user = "murad";
-    group = "murad";
+    # user = "murad";
+    # group = "murad";
     hostName = "bliksem.io";
   };
 
