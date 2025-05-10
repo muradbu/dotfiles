@@ -150,11 +150,20 @@
     downloadDir = "/mnt/data/downloads";
   };
 
+  services.nginx = {
+    enable = true;
+    virtualHosts."127.0.0.1" = {
+      enableACME = false;
+      addSSL = false;
+    };
+  };
+
   services.rutorrent = {
     enable = true;
     # user = "murad";
     # group = "murad";
     hostName = "127.0.0.1";
+    nginx.enable = true;
   };
 
   virtualisation.docker.enable = true;
