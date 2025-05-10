@@ -164,6 +164,7 @@
     # group = "murad";
     hostName = "127.0.0.1";
     nginx.enable = true;
+    plugins = [ "datadir" ];
   };
 
   virtualisation.docker.enable = true;
