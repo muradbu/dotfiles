@@ -6,6 +6,7 @@
     "${self}/packages/neovim"
     "${self}/users/murad.nix"
     "${self}/hosts/shared"
+    ./disks.nix
   ];
 
   #sops.defaultSopsFile = ../../secrets/secrets.yaml;
