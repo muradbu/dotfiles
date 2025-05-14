@@ -1,6 +1,9 @@
 { config, ... }:
 
 {
+  home.username = "murad";
+  home.homeDirectory = "/home/murad";
+
   #home.packages = with pkgs; [ ];
 
   programs.bash.profileExtra = ''
@@ -13,4 +16,5 @@
   '';
 
   home.stateVersion = "24.11";
+  programs.home-manager.enable = true;
 }
