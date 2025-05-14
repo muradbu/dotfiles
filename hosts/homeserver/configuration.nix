@@ -47,25 +47,6 @@
   #  };
   #};
 
-  #services.rtorrent = {
-  #  enable = true;
-  #  port = 60000;
-  #  user = "murad";
-  #  group = "murad";
-  #  dataDir = "/home/murad/.config/rtorrent";
-  #  openFirewall = true;
-  #  downloadDir = "/home/murad/mnt/downloads";
-  #  configText = "";
-  #};
-
-  #services.rutorrent = {
-  #  enable = true;
-  #  dataDir = "/home/murad/.config/rutorrent";
-  #  hostName = "rutorrent.muradb.com";
-  #  #user = "murad";
-  #  #group = "murad";
-  #};
-
   programs.bat = {
     enable = true;
   };
@@ -158,7 +139,7 @@
     # group = "murad";
     hostName = "127.0.0.1";
     nginx.enable = true;
-    plugins = [ "datadir" ];
+    plugins = [ "datadir" "autotools" "_task" "_getdir" "geoip" "erasedata" "theme" "trafic" "seedingtime" "create" "rss" "throttle" "scheduler" "ratio" "unpack" "extsearch" "mediainfo" "screenshots" "spectrogram" "uploadeta" "bulk_magnet" "check_port" "filedrop" "source" ];
   };
 
   virtualisation.docker.enable = true;
