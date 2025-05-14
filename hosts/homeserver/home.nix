@@ -1,4 +1,6 @@
-{ config }: {
+{ config, ... }:
+
+{
   #home.packages = with pkgs; [ ];
 
   programs.bash.profileExtra = ''
