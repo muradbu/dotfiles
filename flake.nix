@@ -44,6 +44,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.users.murad = ./hosts/homeserver/home.nix;
         }
       ];
     };
