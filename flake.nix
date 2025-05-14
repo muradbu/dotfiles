@@ -37,7 +37,7 @@
       system = "x86_64-linux";
       specialArgs = { inherit self nixpkgs-unstable; };
       modules = [
-        ./hosts/home/configuration.nix
+        ./hosts/homeserver/configuration.nix
         home-manager.nixosModules.home-manager
         nixvim.nixosModules.nixvim
         sops-nix.nixosModules.sops
