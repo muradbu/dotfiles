@@ -1,11 +1,14 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
   home.username = "murad";
   home.homeDirectory = "/home/murad";
 
-  #home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    htop
+  ];
 
+  programs.bash.enable = true;
   programs.bash.profileExtra = ''
     if command -v fzf-share >/dev/null; then
       source "$(fzf-share)/key-bindings.bash"
