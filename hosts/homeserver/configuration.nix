@@ -31,6 +31,7 @@
     qbittorrent-nox
     qbittorrent-cli
     silver-searcher
+    powertop
     sqlite
     tmux
     yt-dlp
