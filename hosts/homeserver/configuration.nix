@@ -29,6 +29,7 @@
     miniserve
     p7zip
     qbittorrent-nox
+    qbittorrent-cli
     silver-searcher
     sqlite
     tmux
