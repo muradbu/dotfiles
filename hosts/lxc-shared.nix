@@ -2,7 +2,7 @@
 
 {
   imports = [ 
-    (modulesPath + "/virtualisation/proxmox-lxc.nix") 
+#    (modulesPath + "/virtualisation/proxmox-lxc.nix") 
     ../users/murad.nix
   ];
 
