@@ -27,7 +27,7 @@
           modules = [
             ./hosts/lxc-shared.nix
             {
-              nixpkgs.buildPlatform = "aarch64-darwin";
+#              nixpkgs.buildPlatform = "aarch64-darwin";
             }
           ];
         };
