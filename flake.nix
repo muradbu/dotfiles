@@ -13,7 +13,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, ... }:
+  outputs = inputs@{ flake-parts, ... }:
     # https://flake.parts/module-arguments.html
     flake-parts.lib.mkFlake { inherit inputs; } (top@{ config, withSystem, moduleWithSystem, ... }: {
       imports = [
@@ -23,7 +23,7 @@
       ];
       flake = {
 
-        nixosConfigurations."lxc-template" = nixpkgs.lib.nixosSystem {
+        nixosConfigurations."lxc-template" = inputs.nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/lxc-shared.nix
           ];

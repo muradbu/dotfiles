@@ -82,6 +82,8 @@
     "@wheel"
   ];
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   # Fix to make Proxmox's web-based terminal emulator work
   systemd.services."serial-getty@ttyS0".enable = true;
 
