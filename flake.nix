@@ -25,7 +25,10 @@
 
         nixosConfigurations."lxc-template" = inputs.nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/lxc-shared.nix
+            ./hosts/lxc-shared.nixpkgs
+            {
+              nixpkgs.buildPlatform = "aarch64-darwin";
+            }
           ];
         };
       };
