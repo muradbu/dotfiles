@@ -55,7 +55,8 @@
   };
 
   networking = {
-    firewall.enable = true;
+    firewall.enable = false;
+    #firewall.enable = lib.mkDefault true;
     useDHCP = lib.mkDefault true; 
     useHostResolvConf = false; 
   };
