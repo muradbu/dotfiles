@@ -14,6 +14,22 @@
   };
 
   outputs = inputs@{ flake-parts, ... }:
+    let
+      lib = inputs.nixpkgs.lib;
+      hostsDir = ./hosts;
+      # Directories to skip (non-NixOS hosts like nix-darwin)
+      skipHosts = [ "macbookpro" ];
+      hostDirs = builtins.attrNames (
+        lib.filterAttrs (name: type:
+          type == "directory"
+          && !builtins.elem name skipHosts
+          && builtins.pathExists (hostsDir + "/${name}/configuration.nix")
+        ) (builtins.readDir hostsDir)
+      );
+      mkHost = name: lib.nixosSystem {
+        modules = [ (hostsDir + "/${name}/configuration.nix") ];
+      };
+    in
     # https://flake.parts/module-arguments.html
     flake-parts.lib.mkFlake { inherit inputs; } (top@{ config, withSystem, moduleWithSystem, ... }: {
       imports = [
@@ -22,15 +38,7 @@
         # inputs.foo.flakeModules.default
       ];
       flake = {
-
-        nixosConfigurations."lxc-template" = inputs.nixpkgs.lib.nixosSystem {
-          modules = [
-            ./hosts/lxc-shared.nix
-            {
-#              nixpkgs.buildPlatform = "aarch64-darwin";
-            }
-          ];
-        };
+        nixosConfigurations = lib.genAttrs hostDirs mkHost;
       };
       systems = [
         # systems for which you want to build the `perSystem` attributes
