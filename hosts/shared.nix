@@ -81,6 +81,7 @@
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
