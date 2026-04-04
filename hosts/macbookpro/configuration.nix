@@ -1,4 +1,9 @@
-{ pkgs, nixpkgs, self, ... }:
+{
+  pkgs,
+  nixpkgs,
+  self,
+  ...
+}:
 
 {
   nixpkgs.overlays = [
@@ -24,6 +29,7 @@
     fzf
     git-crypt
     inetutils
+    gh
     libssh
     nil
     self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
@@ -46,9 +52,15 @@
 
   nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-  nix.settings.trusted-users = [ "root" "murad" ];
+  nix.settings.trusted-users = [
+    "root"
+    "murad"
+  ];
 
   programs.zsh.enable = true;
 
