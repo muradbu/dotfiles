@@ -19,7 +19,7 @@
     git
     tmux
     wget
-    self.packages.${pkgs.system}.neovim
+    self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
   ];
 
   environment.enableAllTerminfo = true;

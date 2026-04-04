@@ -26,7 +26,7 @@
     inetutils
     libssh
     nil
-    self.packages.${pkgs.system}.neovim
+    self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
     nixd
     nixfmt
     nodejs_25
