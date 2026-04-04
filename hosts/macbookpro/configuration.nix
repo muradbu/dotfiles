@@ -26,6 +26,7 @@
     inetutils
     libssh
     nil
+	neovim
     nixd
     nixfmt
     nodejs_25
