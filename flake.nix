@@ -13,7 +13,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs = inputs@{ flake-parts, darwin, ... }:
     let
       lib = inputs.nixpkgs.lib;
       hostsDir = ./hosts;
@@ -37,9 +37,19 @@
         # Optional: use external flake logic, e.g.
         # inputs.foo.flakeModules.default
       ];
+
       flake = {
         nixosConfigurations = lib.genAttrs hostDirs mkHost;
+
+        darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
+          modules = [
+            ./hosts/macbookpro/configuration.nix
+          ];
+
+          specialArgs = { inherit inputs; };
+        };
       };
+
       systems = [
         # systems for which you want to build the `perSystem` attributes
         "x86_64-linux"
@@ -47,6 +57,7 @@
         "aarch64-darwin"
         # ...
       ];
+
       perSystem = { config, pkgs, ... }: {
         formatter = pkgs.nixpkgs-fmt;
         # Recommended: move all package definitions here.

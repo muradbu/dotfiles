@@ -5,10 +5,10 @@
     (import ../../overlays/gemini-cli-bin)
   ];
 
-  imports = [
-    "${self}/packages/neovim"
-    "${self}/hosts/shared"
-  ];
+  #imports = [
+  #  "${self}/packages/neovim"
+  #  "${self}/hosts/shared"
+  #];
 
   ids.gids.nixbld = 350;
 
@@ -17,11 +17,11 @@
     home = "/Users/murad";
   };
 
-  home-manager.users.murad = { pkgs, ... }: {
-    home.packages = with pkgs; [ ];
+  #home-manager.users.murad = { pkgs, ... }: {
+  #  home.packages = with pkgs; [ ];
 
-    home.stateVersion = "24.05";
-  };
+  #  home.stateVersion = "24.05";
+  #};
 
   environment.systemPackages = with pkgs; [
     #discord
@@ -91,6 +91,8 @@
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   #environment.darwinConfig = "$HOME/.config/nix-darwin";
+
+  nixpkgs.hostPlatform = { system = "aarch64-linux"; };
 
   system.stateVersion = 4;
 }
