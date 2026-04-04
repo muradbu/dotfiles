@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  self,
   ...
 }:
 
@@ -18,6 +19,7 @@
     git
     tmux
     wget
+    self.packages.${pkgs.system}.neovim
   ];
 
   environment.enableAllTerminfo = true;
@@ -49,12 +51,7 @@
     enableBashIntegration = true;
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-  };
+  environment.variables.EDITOR = "nvim";
 
   networking.firewall.enable = false;
 

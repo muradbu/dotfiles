@@ -9,11 +9,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    nix-wrapper-modules.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ flake-parts, darwin, nixpkgs, ... }:
+  outputs = inputs@{ flake-parts, darwin, nixpkgs, nix-wrapper-modules, ... }:
     let
       lib = inputs.nixpkgs.lib;
       hostsDir = ./hosts;
@@ -26,20 +28,25 @@
           && builtins.pathExists (hostsDir + "/${name}/configuration.nix")
         ) (builtins.readDir hostsDir)
       );
-      mkHost = name: lib.nixosSystem {
-        modules = [ (hostsDir + "/${name}/configuration.nix") ];
-      };
     in
     # https://flake.parts/module-arguments.html
     flake-parts.lib.mkFlake { inherit inputs; } ({ self, config, withSystem, moduleWithSystem, ... }: {
       imports = [
         ./shells/default.nix
-        # Optional: use external flake logic, e.g.
-        # inputs.foo.flakeModules.default
+        nix-wrapper-modules.flakeModules.wrappers
       ];
 
       flake = {
-        nixosConfigurations = lib.genAttrs hostDirs mkHost;
+        nixosConfigurations =
+          let
+            mkHost = name: lib.nixosSystem {
+              modules = [ (hostsDir + "/${name}/configuration.nix") ];
+              specialArgs = { inherit self; };
+            };
+          in
+          lib.genAttrs hostDirs mkHost;
+
+        wrappers.neovim = import ./nvim/default.nix;
 
         darwinConfigurations."kunafa" = darwin.lib.darwinSystem {
           modules = [

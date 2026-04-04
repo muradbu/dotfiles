@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, ... }:
+{ pkgs, nixpkgs, self, ... }:
 
 {
   nixpkgs.overlays = [
@@ -26,7 +26,7 @@
     inetutils
     libssh
     nil
-	neovim
+    self.packages.${pkgs.system}.neovim
     nixd
     nixfmt
     nodejs_25
