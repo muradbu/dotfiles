@@ -13,7 +13,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ flake-parts, darwin, ... }:
+  outputs = inputs@{ flake-parts, darwin, nixpkgs, ... }:
     let
       lib = inputs.nixpkgs.lib;
       hostsDir = ./hosts;
@@ -31,7 +31,7 @@
       };
     in
     # https://flake.parts/module-arguments.html
-    flake-parts.lib.mkFlake { inherit inputs; } (top@{ config, withSystem, moduleWithSystem, ... }: {
+    flake-parts.lib.mkFlake { inherit inputs; } ({ self, config, withSystem, moduleWithSystem, ... }: {
       imports = [
         ./shells/default.nix
         # Optional: use external flake logic, e.g.
@@ -46,7 +46,7 @@
             ./hosts/macbookpro/configuration.nix
           ];
 
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit nixpkgs self; };
         };
       };
 
