@@ -30,7 +30,6 @@
     nixfmt
     nodejs_25
     sops
-    yt-dlp
     z-lua
     zulu
   ];
