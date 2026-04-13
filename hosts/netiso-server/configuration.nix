@@ -22,7 +22,7 @@
     after = [ "network.target" ];
 
     serviceConfig = {
-      ExecStart = "netiso-srv -r";
+      ExecStart = "/home/murad/.local/bin/netiso-srv -r";
 
       WorkingDirectory = "/home/murad/games/xbox360/extracted";
       User = "murad";
