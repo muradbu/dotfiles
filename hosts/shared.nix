@@ -24,6 +24,8 @@
 
   environment.enableAllTerminfo = true;
 
+  environment.localBinInPath = true;
+
   environment.shellAliases = {
     cat = "bat";
     dps = "docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'";
