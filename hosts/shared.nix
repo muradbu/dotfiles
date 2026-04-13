@@ -20,6 +20,7 @@
     tmux
     wget
     self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
+    yazi
   ];
 
   environment.enableAllTerminfo = true;
