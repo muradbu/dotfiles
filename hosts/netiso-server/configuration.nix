@@ -7,6 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     lftp
+    _7zz
     maxcso
   ];
 
