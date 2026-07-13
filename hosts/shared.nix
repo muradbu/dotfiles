@@ -54,6 +54,8 @@
     enableBashIntegration = true;
   };
 
+  programs.ssh.startAgent = true;
+
   environment.variables.EDITOR = "nvim";
 
   networking.firewall.enable = false;
