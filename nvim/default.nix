@@ -1,13 +1,21 @@
-{ wlib, pkgs, lib, ... }:
+{
+  wlib,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [ wlib.wrapperModules.neovim ];
 
   settings = {
     config_directory = ./.;
-    aliases = [ "vim" "vi" ];
+    aliases = [
+      "vim"
+      "vi"
+    ];
   };
 
-  extraPackages = with pkgs; [
+  runtimePkgs = with pkgs; [
     nil
     nixfmt
     lua-language-server

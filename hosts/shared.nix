@@ -8,19 +8,8 @@
 
 {
   imports = [
+    ../modules/common.nix
     ../users/murad.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
-    bat
-    btop
-    curl
-    eza
-    git
-    tmux
-    wget
-    self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
-    yazi
   ];
 
   environment.enableAllTerminfo = true;
@@ -28,20 +17,7 @@
   environment.localBinInPath = true;
 
   environment.shellAliases = {
-    cat = "bat";
-    dps = "docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'";
-    ls = "eza -lghHbm --git --icons --time-style=long-iso --group-directories-first";
     lsblk = "lsblk -o name,fstype,size,fsused,fsavail,fsuse%,mountpoints";
-
-    ga = "git add";
-    gc = "git commit";
-    gco = "git checkout";
-    gcp = "git cherry-pick";
-    gdiff = "git diff";
-    gl = "git prettylog";
-    gp = "git push";
-    gs = "git status";
-    gt = "git tag";
   };
 
   programs.fzf = {
@@ -55,10 +31,6 @@
   };
 
   programs.ssh.startAgent = true;
-
-  environment.variables.EDITOR = "nvim";
-
-  networking.firewall.enable = false;
 
   services.openssh = {
     enable = true;
@@ -77,8 +49,8 @@
     };
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+      dates = lib.mkDefault "weekly";
+      options = lib.mkDefault "--delete-older-than 30d";
     };
   };
 
@@ -91,5 +63,5 @@
   documentation.enable = false;
   documentation.nixos.enable = false;
 
-  system.stateVersion = "25.11";
+  system.stateVersion = lib.mkDefault "25.11";
 }

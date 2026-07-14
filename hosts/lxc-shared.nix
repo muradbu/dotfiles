@@ -15,6 +15,9 @@
   # LXC-specific settings
   boot.isContainer = true;
 
+  # Trusted LAN containers; Proxmox handles isolation.
+  networking.firewall.enable = false;
+
   networking = {
     useDHCP = lib.mkDefault true;
     useHostResolvConf = false;

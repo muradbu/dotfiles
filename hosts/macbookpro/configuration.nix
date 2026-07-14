@@ -6,8 +6,8 @@
 }:
 
 {
-  nixpkgs.overlays = [
-    (import ../../overlays/gemini-cli-bin)
+  imports = [
+    ../../modules/common.nix
   ];
 
   ids.gids.nixbld = 350;
@@ -20,11 +20,7 @@
   environment.systemPackages = with pkgs; [
     age
     gemini-cli-bin
-    alejandra
-    bat
-    btop
     dua
-    eza
     fswatch
     fzf
     git-crypt
@@ -32,18 +28,13 @@
     gh
     libssh
     nil
-    self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
     nixd
     nixfmt
     nodejs_latest
     sops
-    z-lua
+    zoxide
     zulu
   ];
-
-  environment.variables = {
-    EDITOR = "nvim";
-  };
 
   programs.direnv = {
     enable = true;
@@ -63,9 +54,8 @@
   ];
 
   programs.zsh.enable = true;
-
-  security.sudo.extraConfig = ''
-    Defaults         timestamp_timeout=30
+  programs.zsh.interactiveShellInit = ''
+    eval "$(zoxide init zsh)"
   '';
 
   nixpkgs.config.allowUnfree = true;

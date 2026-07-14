@@ -2,12 +2,9 @@
   description = "Murad's dotfiles";
 
   inputs = {
-    colmena.url = "github:zhaofengli/colmena";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:LnL7/nix-darwin";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     nix-wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
@@ -73,7 +70,10 @@
               mkHost =
                 name:
                 lib.nixosSystem {
-                  modules = [ (hostsDir + "/${name}/configuration.nix") ];
+                  modules = [
+                    inputs.sops-nix.nixosModules.sops
+                    (hostsDir + "/${name}/configuration.nix")
+                  ];
                   specialArgs = { inherit self; };
                 };
             in
@@ -111,7 +111,7 @@
         perSystem =
           { config, pkgs, ... }:
           {
-            formatter = pkgs.nixpkgs-fmt;
+            formatter = pkgs.nixfmt-tree;
             # Recommended: move all package definitions here.
             # e.g. (assuming you have a nixpkgs input)
             # packages.foo = pkgs.callPackage ./foo/package.nix { };

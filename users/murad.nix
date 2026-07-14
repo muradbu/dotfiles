@@ -9,7 +9,13 @@
     isNormalUser = true;
     group = "murad";
     home = "/home/murad";
-    extraGroups = [ "docker" "wheel" "video" "render" "libvirtd" ];
+    extraGroups = [
+      "docker"
+      "wheel"
+      "video"
+      "render"
+      "libvirtd"
+    ];
     packages = with pkgs; [ ];
     linger = true;
     initialHashedPassword = "$y$j9T$9EyXxMMX92mW9qu0pjEFC/$Elr3r7SRzJNciCJKoshwGCxZ5OyNR.Z1LhI47lNnth6";
@@ -18,8 +24,4 @@
     ];
   };
 
-  security.sudo.extraConfig = ''
-    Defaults:murad          timestamp_timeout=30
-  '';
-  
 }

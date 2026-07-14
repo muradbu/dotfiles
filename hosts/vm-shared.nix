@@ -40,6 +40,9 @@
   # Networking
   networking.useDHCP = lib.mkDefault true;
 
+  # Trusted LAN VMs behind the Proxmox host.
+  networking.firewall.enable = false;
+
   # QEMU Guest Agent for Proxmox integration (shutdown, freeze, info)
   services.qemuGuest.enable = true;
 }

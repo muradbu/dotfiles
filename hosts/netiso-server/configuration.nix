@@ -5,6 +5,8 @@
     ../lxc-shared.nix
   ];
 
+  networking.hostName = "netiso-server";
+
   environment.systemPackages = with pkgs; [
     lftp
     _7zz

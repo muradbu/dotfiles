@@ -1,0 +1,12 @@
+keys:
+  # Personal key (~/.config/sops/age/keys.txt on kunafa)
+  - &murad age1pld8pjxmu36mna2vynttaxl4wpdd5puqlmpk9sqkwu9ulv8st4rs82q9k2
+  # andromeda host key (ssh-to-age of /etc/ssh/ssh_host_ed25519_key.pub)
+  - &andromeda age1wws09pcgy0my2rflsv7zmca702rm4gx4hwv3jh0gp2gayp7d2v9segafee
+
+creation_rules:
+  - path_regex: secrets/secrets\.yaml$
+    key_groups:
+      - age:
+          - *murad
+          - *andromeda
