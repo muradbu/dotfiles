@@ -35,7 +35,7 @@
     self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
     nixd
     nixfmt
-    nodejs_25
+    nodejs_latest
     sops
     z-lua
     zulu
