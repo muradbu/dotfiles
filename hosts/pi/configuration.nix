@@ -16,6 +16,16 @@
 
   networking.hostName = "pi";
 
+  # Binary cache for the vendor kernel/firmware, so rebuilds on the pi don't
+  # compile them from source. Lives here rather than in flake.nix nixConfig so
+  # other hosts aren't prompted to accept it.
+  nix.settings = {
+    extra-substituters = [ "https://nixos-raspberrypi.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+    ];
+  };
+
   # Generational bootloader. The Pi 5 base module still defaults to the legacy
   # "kernelboot"; "kernel" is what upstream recommends for new installs and what
   # its SD images use, so keep the installed system on the same one.
