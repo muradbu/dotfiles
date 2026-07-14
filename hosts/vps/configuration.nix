@@ -317,6 +317,9 @@ in
     6881
   ];
   networking.firewall.allowedUDPPorts = [ 6881 ];
+  # Services not exposed publicly (FTP, *arr web UIs) are reached over
+  # tailscale, so exempt that interface from filtering.
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   system.stateVersion = "24.05";
 }
