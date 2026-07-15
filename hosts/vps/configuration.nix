@@ -49,7 +49,7 @@ in
   sops.secrets.autobrrSessionSecret = { };
   #systemd.services.autobrr.serviceConfig.LoadCredential = "autobrrSessionSecret:${config.sops.secrets.autobrrSessionSecret.path}";
   services.autobrr = {
-    enable = false;
+    enable = true;
     secretFile = config.sops.secrets.autobrrSessionSecret.path;
     settings = {
       host = "0.0.0.0";
