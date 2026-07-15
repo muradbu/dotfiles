@@ -8,20 +8,18 @@
 
 {
   imports = [
-    #    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    # Enables boot.loader.initScript so /sbin/init is rewritten on every
+    # rebuild — without it the container reverts to the template system on
+    # every restart. Also defers network setup to Proxmox (systemd-networkd).
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
     ./shared.nix
   ];
 
-  # LXC-specific settings
-  boot.isContainer = true;
+  # Keep hostnames from this repo instead of Proxmox's /etc/hostname.
+  proxmoxLXC.manageHostName = true;
 
   # Trusted LAN containers; Proxmox handles isolation.
   networking.firewall.enable = false;
-
-  networking = {
-    useDHCP = lib.mkDefault true;
-    useHostResolvConf = false;
-  };
 
   # Fix to make Proxmox's web-based terminal emulator work
   systemd.services."serial-getty@ttyS0".enable = true;
