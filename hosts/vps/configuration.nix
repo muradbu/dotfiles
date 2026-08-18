@@ -282,9 +282,9 @@ in
   };
 
   # Internet-facing host: harden sshd beyond the shared.nix baseline.
+  # GSSAPI/Kerberos options are omitted: this openssh is built without Kerberos
+  # support, so sshd rejects them as unknown (and can't offer those methods).
   services.openssh.settings = {
-    GSSAPIAuthentication = false;
-    KerberosAuthentication = false;
     PermitEmptyPasswords = false;
     PubkeyAuthentication = true;
     UsePAM = true;
